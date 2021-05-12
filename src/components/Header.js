@@ -1,17 +1,17 @@
 import React from "react";
 import '../App.css';
-function Header() {
+function Header(props) {
   return (
-    <div className="header">
-      <header class="py-1 bg-light">
-       <div  class="header-container">
-            <div class="header-left"> 
+    <header className={`header ${props.className}`}>
+      <div className="py-1 bg-light">
+       <div  className="header-container">
+            <div className="header-left"> 
                 <figure >
                     <img src="../icons/menu.png"></img>
                 </figure>
-                <span class='header-title'>Shop</span>
+                <span className='header-title'>Shop</span>
             </div>
-            <div class="header-right">
+            <div className="header-right">
                 <figure id='share'>
                     <img src='../icons/share.png'></img>
                 </figure>
@@ -23,8 +23,8 @@ function Header() {
                 </figure>
             </div>
         </div>
-      </header>
-    </div>
+      </div>
+    </header>
   );
 }
 

@@ -5,3 +5,5 @@ export { default as About } from "./About";
 export { default as Contact } from "./Contact";
 export { default as Dataset } from "./Dataset";
 export { default as MyComponent } from "./Scroll";
+export { default as HeaderStyle } from "./HeaderStyle";
+export { default as Mouse } from "./Mouse";

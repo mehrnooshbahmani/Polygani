@@ -1,6 +1,3 @@
-.hheader{
- 
-}
 .header-container{
   padding: 1rem 0.5rem 0rem 2.5rem;
   text-align: center;
@@ -54,10 +51,39 @@ nav-item:hover{
 }
 .nav-link{
   color: #CCCCCC;
-  font-weight: bold;
-  
+  font-weight: bold;  
 }
 .nav-link:hover{
   /* border-bottom: 3px solid purple; */
   color: purple !important;
+}
+.nav-link:active{
+  /* border-bottom: 3px solid purple; */
+  color: purple !important;
+}
+/* .moved{
+  transform: translate(0,2rem);
+  z-index: 5;
+} */
+/* .scroll{
+  overflow-x: hidden;
+  overflow-y: scroll;
+  white-space: nowrap;
+  height: 100vh;
+  width: 100%;
+} */
+
+.fixed {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  overflow:auto;
+  overflow: -moz-scrollbars-none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.fixed::-webkit-scrollbar { 
+  width: 0 !important;
+  display: none; 
 }
