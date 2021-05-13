@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, withRouter} from "react-router-dom";
-import { Navigation, Home, About, Contact,Dataset, Header, HeaderStyle, Mouse} from "./";
+import { Navigation, Dataset, Dataset2, Header, Mouse} from "./";
 import '../App.css';
 class MyComponent extends React.Component {
  
@@ -39,18 +39,21 @@ class MyComponent extends React.Component {
     render() {
       return (
         <Router>
-        <Mouse></Mouse>
+        <Mouse/>
         <Header  className={`${
-            this.state.flag ? "moved"   : null
+            this.state.flag ? "movedTrue"   : "movedFalse"
           }`}/>
             <Navigation className={`${
             this.state.flag ?  null  : "fixed"
           }`} />
             <Switch>
-              <Route path="/about" exact component={() => <About className={`${
+            <Route path="/" exact component={() => <Dataset2 className={`${
+            this.state.flag ?  null  : "scroll"
+          }`} />} />  
+              <Route path="/purchase" exact component={() => <Dataset2 className={`${
             this.state.flag ?  null  : "scroll"
           }`} />} />
-              <Route path="/data" exact component={() => <Dataset className={`${
+              <Route path="/wishlist" exact component={() => <Dataset className={`${
             this.state.flag ?  null  : "scroll"
           }`} />} />
             </Switch>

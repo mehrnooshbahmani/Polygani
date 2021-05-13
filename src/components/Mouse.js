@@ -9,10 +9,10 @@ class Mouse extends React.Component {
     }
   
     componentDidMount(){
-        window.addEventListener('mouse',this.onMouseMove,true);
+        window.addEventListener('onMouseMove',this.onMouseMove,true);
     }
     componentWillUnmount(){
-        window.removeEventListener('mouse',this.onMouseMove);
+        window.removeEventListener('onMouseMove',this.onMouseMove);
     }
     onMouseMove(e) {
       this.setState(
@@ -21,7 +21,7 @@ class Mouse extends React.Component {
         });
         console.log(e);
     }
-  
+
     render() {
     //   const { x, y } = this.state;
     //   return <div onMouseMove={this._onMouseMove.bind(this)}>

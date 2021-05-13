@@ -8,22 +8,21 @@ function Navigation(props) {
       <nav className="navbar navbar-expand bg-light ">
         <div className="container">
           <div className="navbar-nav">
-         
               <div
                 className={`nav-item-left  ${
-                  props.location.pathname === "/about" ? "active" : ""
+                  props.location.pathname === "/purchase" || "/" ? "active" : ""
                 }`}
               >
-                <Link className="nav-link" to="/about">
+                <Link className="nav-link" to="/purchase">
                   PURCHASES
                 </Link>
               </div>
               <div
                 className={`nav-item-right  ${
-                  props.location.pathname === "/data" ? "active" : ""
+                  props.location.pathname === "/wishlist" ? "active" : ""
                 }`}
               >
-                <Link className="nav-link" to="/data">
+                <Link className="nav-link" to="/wishlist">
                   WISHLIST
                 </Link>
               </div>

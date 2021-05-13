@@ -1,5 +1,5 @@
 .header-container{
-  padding: 1rem 0.5rem 0rem 2.5rem;
+  padding: 1rem 0.5rem 0rem 1.5rem;
   text-align: center;
 }
 .header-container,.header-left,.header-right{
@@ -21,17 +21,17 @@
   font-size: 21px;
   font-weight: bold;
   padding-bottom: 1.1rem;
-  padding-left: 1.2rem;
+  padding-left: 0.5rem;
 }
 img{
   width: 100%;
 }
 figure{
   width: 2rem;
-  margin-right: 1rem;
+  margin-right: 0.2rem;
 }
 #share{
-  margin-right: 1.5rem;
+  margin-right: 0.5rem;
 }
 .navbar{
   border-bottom: 3px solid #CCCCCC;
@@ -54,36 +54,60 @@ nav-item:hover{
   font-weight: bold;  
 }
 .nav-link:hover{
-  /* border-bottom: 3px solid purple; */
+  border-bottom: 3px solid purple;
   color: purple !important;
 }
 .nav-link:active{
-  /* border-bottom: 3px solid purple; */
+  border-bottom: 3px solid purple;
   color: purple !important;
 }
-/* .moved{
-  transform: translate(0,2rem);
+.movedTrue{
+  position: sticky;
+  top: 0;
+  visibility: visible;
+  transition: all 200ms  ease-in;
+  transform: none;
   z-index: 5;
-} */
-/* .scroll{
+}
+.movedFalse{
+  visibility: hidden;
+  transition: all 200ms  ease-out;
+  transform: translate(0, -100%);
+  z-index: 5;
+}
+.scroll{
   overflow-x: hidden;
   overflow-y: scroll;
-  white-space: nowrap;
-  height: 100vh;
+  height: 1000px;
   width: 100%;
-} */
+}
 
 .fixed {
   position: fixed;
   z-index: 1;
   width: 100%;
   top: 0;
-  overflow:auto;
-  overflow: -moz-scrollbars-none;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
 }
-.fixed::-webkit-scrollbar { 
+body::-webkit-scrollbar { 
   width: 0 !important;
   display: none; 
+   -webkit-overflow-scrolling:touch;
+}
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 10px;
+  border: 2px solid #ffffff;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #ffffff;
 }
