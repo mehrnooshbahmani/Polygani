@@ -57,7 +57,13 @@ nav-item:hover{
   border-bottom: 3px solid purple;
   color: purple !important;
 }
-.nav-link:active{
+/* .nav-link:active{
+  border-bottom: 3px solid purple;
+  color: purple !important;
+} */
+.nav-link-active{
+  color: #CCCCCC;
+  font-weight: bold;  
   border-bottom: 3px solid purple;
   color: purple !important;
 }

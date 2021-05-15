@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, withRouter} from "react-router-dom";
-import { Navigation, Dataset, Dataset2, Header, Mouse} from "./";
+import { Navigation, Dataset, Dataset2, Header} from "./";
 import '../App.css';
 class MyComponent extends React.Component {
  
@@ -9,6 +9,8 @@ class MyComponent extends React.Component {
         super(props);
         this.onScroll=this.onScroll.bind(this);
         this.updateDimensions=this.updateDimensions.bind(this);
+        this.onselect=this.onselect.bind(this);
+        
         this.state={
             finalHeight: 0,
             height: window.scrollY,
@@ -22,10 +24,12 @@ class MyComponent extends React.Component {
     componentDidMount(){
         window.addEventListener('scroll',this.onScroll,true);
         window.addEventListener('resize', this.updateDimensions,true);
+        window.addEventListener('resize', this.onselect,true);
     }
     componentWillUnmount(){
         window.removeEventListener('scroll',this.onScroll);
-        window.removeEventListener("resize", this.updateDimensions.bind(this));
+        window.removeEventListener("resize", this.updateDimensions);
+        window.removeEventListener("resize", this.onselect);
     }
     onScroll(){
         let nextHeight=window.scrollY;
@@ -56,34 +60,52 @@ class MyComponent extends React.Component {
         console.log(this.state.finalWidth);
         console.log(this.state.flagWidth);
     }
+    onselect(){
+      console.log(window.onselect);
+    }
 
     render() {
       return (
         <Router>
-        <Mouse/>
         <Header  className={`${
             this.state.flag ? "movedTrue"   : "movedFalse"
           }`}/>
-            <Navigation className={`${
+            <Navigation className1={`${
             this.state.flag ?  null  : "fixed"
-          }`} />
+          }`}
+          className2= {`${this.state.flagWidth ? "nav-link-active" : "nav-link"}`}
+          className3= {`${this.state.flagWidth ? "nav-link" : "nav-link-active"}`}
+          />
             <Switch>
             <Route path="/" exact component={() =>{ 
               if (this.state.flagWidth)
-            <Dataset2 className={`${
+           return( <Dataset2 className={`${
             this.state.flag ?  null  : "scroll"
-          }`} />
+          }`} />)
           else
-          <Dataset className={`${
+         return( <Dataset className={`${
             this.state.flag ?  null  : "scroll"
-          }`} />
+          }`} />)
           } }/>  
-              <Route path="/purchase"  exact component={() => <Dataset2 className={`${
+              <Route path="/purchase"  exact component={() =>{ 
+                if (this.state.flagWidth)
+          return( <Dataset2 className={`${
             this.state.flag ?  null  : "scroll"
-          }`} />} />
-              <Route path="/wishlist" exact component={() => <Dataset className={`${
+          }`} />)
+        else
+        return( <Dataset className={`${
+          this.state.flag ?  null  : "scroll"
+        }`} />)
+         } }/>
+              <Route path="/wishlist" exact component={() =>{
+                if (this.state.flagWidth)
+            return( <Dataset className={`${
             this.state.flag ?  null  : "scroll"
-          }`} />} />
+          }`} />)
+            return( <Dataset2 className={`${
+            this.state.flag ?  null  : "scroll"
+          }`} />)
+              }} />
             </Switch>
           </Router>
       )
