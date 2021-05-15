@@ -7,6 +7,13 @@ class Mouse extends React.Component {
            x: 0,
            y: 0 };
     }
+    handleEvent = (event) => {
+      if (event.type === "mousedown") {
+             this.setState({ message: "Mouse Down"});
+         } else {
+             this.setState({ message: "Mouse Up"});
+         }
+     }
   
     componentDidMount(){
         window.addEventListener('onMouseMove',this.onMouseMove,true);
@@ -19,7 +26,7 @@ class Mouse extends React.Component {
           { x: e.screenX,
             y: e.screenY 
         });
-        console.log(e);
+        console.log(this.state.x);
     }
 
     render() {

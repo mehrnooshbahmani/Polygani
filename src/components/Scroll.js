@@ -8,17 +8,24 @@ class MyComponent extends React.Component {
     {
         super(props);
         this.onScroll=this.onScroll.bind(this);
+        this.updateDimensions=this.updateDimensions.bind(this);
         this.state={
             finalHeight: 0,
             height: window.scrollY,
-            flag: true
+            flag: true,
+            finalWidth: 0,
+            width: window.innerWidth,
+            flagWidth: true
         }
     }
+    
     componentDidMount(){
         window.addEventListener('scroll',this.onScroll,true);
+        window.addEventListener('resize', this.updateDimensions,true);
     }
     componentWillUnmount(){
         window.removeEventListener('scroll',this.onScroll);
+        window.removeEventListener("resize", this.updateDimensions.bind(this));
     }
     onScroll(){
         let nextHeight=window.scrollY;
@@ -35,6 +42,20 @@ class MyComponent extends React.Component {
         console.log(this.state.flag);
        
     }
+    updateDimensions() {
+      let nextWidth=window.innerWidth;
+      this.setState(function(previousState, currentProps){
+          return{
+              finalWidth: (previousState.height-nextWidth),
+              flagWidth: (nextWidth < previousState.width),
+              width: nextWidth
+              
+          }
+      });
+        console.log(this.state.width);
+        console.log(this.state.finalWidth);
+        console.log(this.state.flagWidth);
+    }
 
     render() {
       return (
@@ -47,10 +68,17 @@ class MyComponent extends React.Component {
             this.state.flag ?  null  : "fixed"
           }`} />
             <Switch>
-            <Route path="/" exact component={() => <Dataset2 className={`${
+            <Route path="/" exact component={() =>{ 
+              if (this.state.flagWidth)
+            <Dataset2 className={`${
             this.state.flag ?  null  : "scroll"
-          }`} />} />  
-              <Route path="/purchase" exact component={() => <Dataset2 className={`${
+          }`} />
+          else
+          <Dataset className={`${
+            this.state.flag ?  null  : "scroll"
+          }`} />
+          } }/>  
+              <Route path="/purchase"  exact component={() => <Dataset2 className={`${
             this.state.flag ?  null  : "scroll"
           }`} />} />
               <Route path="/wishlist" exact component={() => <Dataset className={`${
