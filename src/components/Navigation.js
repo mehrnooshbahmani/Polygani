@@ -1,6 +1,4 @@
-import { cleanup } from "@testing-library/react";
 import React from "react";
-import { unstable_createPortal } from "react-dom/cjs/react-dom.development";
 import { Link, withRouter } from "react-router-dom";
 
 
@@ -17,10 +15,7 @@ function Navigation(props) {
                   props.location.pathname === "/purchase" || "/" ? "active" : "" 
                 }`}
               >
-                <Link className={`nav-link  ${
-                  (props.location.pathname === "/purchase" || "/" ? "active" : "" ) ? `${props.className2}` : ""
-                }`} to="/purchase" 
-                
+                <Link id="purchase" className={`nav-link ${props.className2}`} to="/purchase"  
                 >
                   PURCHASES
                 </Link>
@@ -30,9 +25,7 @@ function Navigation(props) {
                   props.location.pathname === "/wishlist"  ? "active" : ""
                 }`}
               >
-                <Link className={`nav-link ${
-                  (props.location.pathname === "/purchase" || "/" ? "active" : "" ) ? `${props.className3}` : ""
-                }`}  to="/wishlist" 
+                <Link  id="wishlist" className={`nav-link ${props.className3}`}  to="/wishlist" 
                 >
                   WISHLIST
                 </Link>
