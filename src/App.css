@@ -46,17 +46,17 @@ figure{
   width: 50%;
   text-align: center;
 }
-nav-item:hover{
+/* nav-item:hover{
     border-bottom: 3px solid purple;
-}
+} */
 .nav-link{
   color: #CCCCCC;
   font-weight: bold;  
 }
-.nav-link:hover{
+/* .nav-link:hover{
   border-bottom: 3px solid purple;
   color: purple !important;
-}
+} */
 /* .nav-link:active{
   border-bottom: 3px solid purple;
   color: purple !important;
@@ -67,6 +67,11 @@ nav-item:hover{
   border-bottom: 3px solid purple;
   color: purple !important;
 }
+/* .nav-link-deactive{
+  color: #CCCCCC !important;
+  font-weight: bold;  
+  border-bottom: none !important;
+} */
 .movedTrue{
   position: sticky;
   top: 0;

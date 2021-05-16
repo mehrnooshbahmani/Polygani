@@ -9,7 +9,6 @@ class MyComponent extends React.Component {
         super(props);
         this.onScroll=this.onScroll.bind(this);
         this.updateDimensions=this.updateDimensions.bind(this);
-        this.onselect=this.onselect.bind(this);
         
         this.state={
             finalHeight: 0,
@@ -17,19 +16,17 @@ class MyComponent extends React.Component {
             flag: true,
             finalWidth: 0,
             width: window.innerWidth,
-            flagWidth: true
+            flagWidth: true,
         }
     }
     
     componentDidMount(){
         window.addEventListener('scroll',this.onScroll,true);
         window.addEventListener('resize', this.updateDimensions,true);
-        window.addEventListener('resize', this.onselect,true);
     }
     componentWillUnmount(){
         window.removeEventListener('scroll',this.onScroll);
-        window.removeEventListener("resize", this.updateDimensions);
-        window.removeEventListener("resize", this.onselect);
+        window.removeEventListener('resize',this.updateDimensions);
     }
     onScroll(){
         let nextHeight=window.scrollY;
@@ -42,8 +39,8 @@ class MyComponent extends React.Component {
             }
         });
 
-        console.log(this.state.finalHeight);
-        console.log(this.state.flag);
+        // console.log(this.state.finalHeight);
+        // console.log(this.state.flag);
        
     }
     updateDimensions() {
@@ -56,12 +53,9 @@ class MyComponent extends React.Component {
               
           }
       });
-        console.log(this.state.width);
-        console.log(this.state.finalWidth);
+        // console.log(this.state.width);
+        // console.log(this.state.finalWidth);
         console.log(this.state.flagWidth);
-    }
-    onselect(){
-      console.log(window.onselect);
     }
 
     render() {

@@ -1,9 +1,11 @@
+import { cleanup } from "@testing-library/react";
 import React from "react";
 import { unstable_createPortal } from "react-dom/cjs/react-dom.development";
 import { Link, withRouter } from "react-router-dom";
 
 
 function Navigation(props) {
+
   return (
     <div className={`navigation ${props.className1}`}
      >
@@ -12,19 +14,26 @@ function Navigation(props) {
           <div className="navbar-nav">
               <div
                 className={`nav-item-left  ${
-                  props.location.pathname === "/purchase" || "/" ? "active" : ""
+                  props.location.pathname === "/purchase" || "/" ? "active" : "" 
                 }`}
               >
-                <Link  to="/purchase" className={`${props.className2}`}>
+                <Link className={`nav-link  ${
+                  (props.location.pathname === "/purchase" || "/" ? "active" : "" ) ? `${props.className2}` : ""
+                }`} to="/purchase" 
+                
+                >
                   PURCHASES
                 </Link>
               </div>
               <div
                 className={`nav-item-right ${
-                  props.location.pathname === "/wishlist" ? "active" : ""
+                  props.location.pathname === "/wishlist"  ? "active" : ""
                 }`}
               >
-                <Link  to="/wishlist"  className={`${props.className3}`}>
+                <Link className={`nav-link ${
+                  (props.location.pathname === "/purchase" || "/" ? "active" : "" ) ? `${props.className3}` : ""
+                }`}  to="/wishlist" 
+                >
                   WISHLIST
                 </Link>
               </div>
